@@ -1,0 +1,35 @@
+.gamification-container {
+  max-width: 400px;
+  margin: 30px auto 0 auto;
+  padding: 1.5rem;
+  background: #f0f7ff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.xp-section, .streak-section, .badges-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.xp-label, .streak-label, .badges-label {
+  font-weight: bold;
+  color: #2563eb;
+}
+.xp-value, .streak-value {
+  font-size: 1.2rem;
+  color: #0a2540;
+}
+.badges-list {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+.badge-item {
+  font-size: 1.5rem;
+  cursor: pointer;
+}

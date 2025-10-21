@@ -1,0 +1,619 @@
+.exercise-detail-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.exercise-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #5a6fd8;
+}
+
+.exercise-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.exercise-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: calc(100vh - 120px);
+  min-height: 700px;
+}
+
+.instructions-panel {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  grid-row: 1 / -1;
+}
+
+.instructions-panel h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.instructions-content {
+  margin-bottom: 2rem;
+}
+
+.instructions-content p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.exercise-info {
+  margin-bottom: 2rem;
+}
+
+.exercise-meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.topic-badge {
+  background: #f8f9fa;
+  color: #667eea;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.hints-section {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff3cd;
+  border-radius: 10px;
+  border-left: 4px solid #ffc107;
+}
+
+.hints-section h3 {
+  color: #856404;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.hints-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.hint-item {
+  color: #856404;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.exercise-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.code-panel {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.code-header h3 {
+  color: #333;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.code-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.line-counter {
+  color: #666;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.keyboard-shortcuts {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.shortcut {
+  background: #e9ecef;
+  color: #666;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+}
+
+.fullscreen-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.fullscreen-btn:hover {
+  background: #5a6fd8;
+  transform: scale(1.05);
+}
+
+.code-editor-container {
+  flex: 1;
+  position: relative;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  transition: border-color 0.3s ease;
+  min-height: 400px;
+}
+
+.code-editor-container:focus-within {
+  border-color: #667eea;
+  background: white;
+}
+
+.line-numbers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: #f1f3f4;
+  border-right: 1px solid #e0e0e0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  padding: 1.5rem 0.5rem 3rem 0.5rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.line-number {
+  text-align: right;
+  padding-right: 0.5rem;
+  user-select: none;
+}
+
+.code-editor {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 1.5rem 1rem 3rem 3.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  background: transparent;
+  color: #333;
+  tab-size: 4;
+  min-height: 350px;
+}
+
+.code-editor::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.code-editor:focus {
+  background: white;
+}
+
+/* Syntax highlighting simulation */
+.code-editor {
+  background: linear-gradient(
+    to right,
+    #f8f9fa 0%,
+    #f8f9fa 3.5rem,
+    transparent 3.5rem,
+    transparent 100%
+  );
+}
+
+.code-editor:focus {
+  background: linear-gradient(
+    to right,
+    #f1f3f4 0%,
+    #f1f3f4 3.5rem,
+    white 3.5rem,
+    white 100%
+  );
+}
+
+.editor-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #666;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.char-count,
+.word-count {
+  background: #e9ecef;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.code-editor-container:focus-within .editor-status {
+  background: #f1f3f4;
+}
+
+/* Fullscreen Mode */
+.exercise-detail-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: white;
+  padding: 0;
+}
+
+.exercise-content.fullscreen-mode {
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.exercise-content.fullscreen-mode .code-panel {
+  grid-row: 2;
+  min-height: calc(100vh - 200px);
+}
+
+.exercise-content.fullscreen-mode .code-editor-container {
+  min-height: calc(100vh - 250px);
+}
+
+.exercise-content.fullscreen-mode .code-editor {
+  min-height: calc(100vh - 300px);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.exercise-content.fullscreen-mode .line-numbers {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.exercise-content.fullscreen-mode .output-panel {
+  grid-row: 3;
+  min-height: 200px;
+}
+
+.output-panel {
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.output-header h3 {
+  color: #fff;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.output-content {
+  flex: 1;
+  color: #00ff00;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  background: #1e1e1e;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #28a745;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-outline:hover {
+  background: #667eea;
+  color: white;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.error h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.loading {
+  color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .exercise-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: auto;
+    min-height: 700px;
+  }
+  
+  .instructions-panel {
+    grid-row: 1;
+  }
+  
+  .code-panel {
+    grid-row: 2;
+    min-height: 400px;
+  }
+  
+  .output-panel {
+    grid-row: 3;
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .exercise-detail-container {
+    padding: 1rem;
+  }
+  
+  .exercise-header h1 {
+    font-size: 2rem;
+  }
+  
+  .exercise-content {
+    gap: 1rem;
+    min-height: 600px;
+  }
+  
+  .instructions-panel,
+  .code-panel,
+  .output-panel {
+    padding: 1rem;
+  }
+  
+  .exercise-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  .code-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .code-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .keyboard-shortcuts {
+    display: none; /* Hide on mobile to save space */
+  }
+  
+  .code-editor {
+    font-size: 14px;
+    padding: 1rem 1rem 2.5rem 3rem;
+  }
+  
+  .line-numbers {
+    font-size: 14px;
+    padding: 1rem 0.5rem 2.5rem 0.5rem;
+  }
+  
+  .editor-status {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .exercise-detail-container {
+    padding: 0.8rem;
+  }
+  
+  .exercise-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .exercise-content {
+    min-height: 500px;
+  }
+  
+  .instructions-panel,
+  .code-panel,
+  .output-panel {
+    padding: 0.8rem;
+  }
+  
+  .code-editor {
+    font-size: 13px;
+    padding: 0.8rem 0.8rem 2rem 2.5rem;
+  }
+  
+  .line-numbers {
+    font-size: 13px;
+    width: 40px;
+    padding: 0.8rem 0.3rem 2rem 0.3rem;
+  }
+  
+  .code-editor {
+    padding-left: 2.5rem;
+  }
+  
+  .exercise-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .hints-section {
+    padding: 0.8rem;
+  }
+  
+  .hints-list {
+    padding-left: 1rem;
+  }
+}
+
+/* Fullscreen mode mobile adjustments */
+@media (max-width: 768px) {
+  .exercise-content.fullscreen-mode {
+    padding: 0.5rem;
+  }
+  
+  .exercise-content.fullscreen-mode .code-panel {
+    min-height: calc(100vh - 150px);
+  }
+  
+  .exercise-content.fullscreen-mode .code-editor-container {
+    min-height: calc(100vh - 200px);
+  }
+  
+  .exercise-content.fullscreen-mode .code-editor {
+    min-height: calc(100vh - 250px);
+    font-size: 16px;
+  }
+  
+  .exercise-content.fullscreen-mode .line-numbers {
+    font-size: 16px;
+  }
+}
